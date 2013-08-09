@@ -23,7 +23,15 @@ class ServersController < ApplicationController
       format.html { redirect_to servers_path, notice: "Emails excluidos do servidor #{server.nome}" } 
     end
   end
-
+  def limpar_db()
+    servers = Server.all
+    servers.each do |server|
+      server.email.delete_all
+    end
+    respond_to do |format|
+      format.html { redirect_to servers_path, notice: "TODOS OS EMAILS FORAM EXCLUIDOS DA BASE" }
+    end   
+  end
   # GET /servers/new
   def new
     @server = Server.new
