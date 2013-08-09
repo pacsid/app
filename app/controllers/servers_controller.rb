@@ -15,6 +15,14 @@ class ServersController < ApplicationController
   # GET /servers/1.json
   def show
   end
+  
+  def deletar_emails()
+    server = Server.find(params[:id])
+    server.email.delete_all
+    respond_to do |format|
+      format.html { redirect_to servers_path, notice: "Emails excluidos do servidor #{server.nome}" } 
+    end
+  end
 
   # GET /servers/new
   def new

@@ -10,9 +10,9 @@
         data.addColumn('number', 'Slices');
         data.addRows([
         <% @servers.each do |server| %>
-          ['<%= server.nome %>', <%=server.email.count%>]
-        ]);
+          ['<%= server.nome %>', <%=server.email.count%>],
         <% end %>
+        ]);
         // Set chart options
         var options = {'title':'Emails abertos por servidor',
                        'width':600,
@@ -23,9 +23,8 @@
         chart.draw(data, options);
       }
     </script>
-  </head>
 
-  <body>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
-  </body>
+  <div id="chart_div">
+  
+  </div>
+  

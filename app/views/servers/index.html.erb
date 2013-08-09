@@ -7,8 +7,11 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th> Adicionado em </th>
       <th> Total de emails </th>
+      <th> Total hoje </th>
+      <th> Total semana </th>
+      <th> Total mes </th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,15 +20,19 @@
       <tr>
         <td><%= link_to server.id, server_path(server) %></td>
         <td><%= server.nome %></td>
-        <td><%=l server.created_at %></td>
+        <td><%= server.created_at.strftime("%m/%d/%Y") %></td>
         <td><%=server.email.count %></td>
+        <td><%= server.email.where(data: Date.today.strftime).count %></td>
+        <td><%= server.email.where("data > ? AND data < ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> </td>
+        <td><%= server.email.where('extract(month from data) = ?', Date.today.month).count %> </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_server_path(server), :class => 'btn btn-mini' %>
+          <%= link_to "Deletar Emails",  deletar_emails_servers_path(:id => server.id), :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voce tem certeza?')) }, :class => 'btn btn-mini' %>_
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       server_path(server),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Voce tem certeza?')) },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>

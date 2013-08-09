@@ -2,6 +2,7 @@ Vidashop::Application.routes.draw do
   devise_for :users
   resources :servers do
     get 'grafico', :on => :collection
+    get 'deletar_emails', :on => :collection
   end
 
   resources :emails
