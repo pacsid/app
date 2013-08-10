@@ -1,4 +1,6 @@
 Vidashop::Application.routes.draw do
+  resources :clicks
+
   devise_for :users
   resources :servers do
     get 'grafico', :on => :collection
