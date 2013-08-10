@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gestão de Emails</title>
+  <title>World Wide Web</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -11,35 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="<%= root_path %>">Administração</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li><%= link_to "Servidores", servers_path %></li>
-            <li><%= link_to "Grafico", grafico_servers_path %> </li>
-            <li><%= link_to "Emails", emails_path %></li>
-            <li><%= link_to "Sair", destroy_user_session_path, method: :delete%></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<%= render 'layouts/menu' %>
   <div class="container">
     <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <h2>Gestão de Emails</h2>
-          Gestão de emails automatizado, utilize o menu acima para navegar no sistema em caso de duvidas entre em contato com sysadmin@altsystem.com.br
-      </div>
+      <div class="span12">
+        <%= render 'layouts/messages' %>
+      <div>
+      <div class="span10"><%= yield %></div>
     </div>
+  </div>
+  <div class="footer">
+   <p align='center'> Sistema  </p>
   </div>
 </body>
 </html>

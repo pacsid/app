@@ -1,0 +1,30 @@
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+        <% @servers.each do |server| %>
+          ['<%= server.nome %>', <%=server.email.count%>],
+        <% end %>
+        ]);
+        // Set chart options
+        var options = {'title':'Emails abertos por servidor',
+                       'width':600,
+                       'height':500};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  <div> <h1> Graficos dos servidores </h1> </div>
+  <div id="chart_div">
+  
+  </div>
+  

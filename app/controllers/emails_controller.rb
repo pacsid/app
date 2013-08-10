@@ -6,8 +6,18 @@ class EmailsController < ApplicationController
   # GET /emails.json
   def index
     @emails = Email.all
+    respond_to do |format|
+      format.html { render :html => @emails }
+      format.xml { render :xml => @emails.to_xml }
+    end
   end
-
+  def top
+    @emails = Email.find(:all, :order => 'visualizacao DESC')
+    respond_to do |format|
+      format.html { render :html => @emails }
+      format.xml { render :xml => @emails.to_xml }
+    end
+  end
   # GET /emails/1
   # GET /emails/1.json
   def show

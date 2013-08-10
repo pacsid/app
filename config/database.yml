@@ -35,6 +35,6 @@ production:
   host: localhost
   database: 'atualbas_mail'
   pool: 5
-  username: 'atualbas_mail'
-  password: 'copa2014'
-  socket: /var/run/mysqld/mysqld.sock
+  username: 'atualbas_usr'
+  password: 'sidnei'
+  socket: /var/lib/mysql/mysql.sock
