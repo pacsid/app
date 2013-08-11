@@ -7,10 +7,11 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %></th>
-      <th> Total de emails </th>
-      <th> Total hoje </th>
-      <th> Total semana </th>
-      <th> Total mes </th>
+      <th> Acessos Total </th>
+      <th> Total de acessos unicos</th>
+      <th> Total de acessos hoje </th>
+      <th> Total de acessos da semana </th>
+      <th> Total de acessos mes </th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
       <tr>
         <td><%= link_to server.id, server_path(server) %></td>
         <td><%= server.nome %></td>
+        <td><%= server.total_visualizacoes(server.id) %></td>
         <td><%=server.email.count %></td>
         <td><%= server.email.where(data: Date.today.strftime).count %></td>
         <td><%= server.email.where("data > ? AND data < ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> </td>
