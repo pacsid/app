@@ -10,6 +10,7 @@ Vidashop::Application.routes.draw do
 
   resources :emails do
     get 'top', :on => :collection
+    get 'exportar_top', :on => :collection
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

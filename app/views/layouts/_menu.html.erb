@@ -21,7 +21,7 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Listar", emails_path %></li>
                 <li><%= link_to "Mais Visualizados", top_emails_path %></li>
-                <li><%= link_to "Exportar Mais Visualizados", top_emails_path(:format => :xml) %></li>
+                <li><%= link_to "Exportar Mais Visualizados", exportar_top_emails_path, :target => "_blank" %></li>
                 <li><%= link_to "Exportar Todos Emails", emails_path(:format => :xml) %></li>
               </ul>
           </li>

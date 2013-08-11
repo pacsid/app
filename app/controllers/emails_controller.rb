@@ -18,6 +18,10 @@ class EmailsController < ApplicationController
       format.xml { render :xml => @emails.to_xml }
     end
   end
+
+  def exportar_top
+    @emails = Email.find(:all, :order => 'visualizacao DESC')
+  end
   # GET /emails/1
   # GET /emails/1.json
   def show
