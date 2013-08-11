@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Server:</strong>
+  <%= @acesso.server_id %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @acesso.email_id %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @acesso.data %>
+</p>
+
+<%= link_to 'Edit', edit_acesso_path(@acesso) %> |
+<%= link_to 'Back', acessos_path %>

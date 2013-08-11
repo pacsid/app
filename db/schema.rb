@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130810001823) do
+ActiveRecord::Schema.define(version: 20130811023615) do
+
+  create_table "acessos", force: true do |t|
+    t.integer  "server_id"
+    t.integer  "email_id"
+    t.string   "ip"
+    t.date     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clicks", force: true do |t|
     t.string   "ip"

@@ -1,4 +1,6 @@
 Vidashop::Application.routes.draw do
+  resources :acessos
+
   resources :clicks
 
   devise_for :users

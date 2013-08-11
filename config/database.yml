@@ -11,11 +11,11 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: 'vidashop_development' #vidashop_development
+  database: 'atualbas_mail' #vidashop_development
   pool: 5
-  username: 'root'
-  password: '123456'
-  socket: /var/run/mysqld/mysqld.sock #/var/lib/mysql/mysql.sock /var/run/mysqld/mysqld.sock
+  username: 'atualbas_usr'
+  password: 'sidnei'
+  socket: /var/lib/mysql/mysql.sock #/var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

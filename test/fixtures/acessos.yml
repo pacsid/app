@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  server_id: 1
+  email_id: 1
+  data: 2013-08-10
+
+two:
+  server_id: 1
+  email_id: 1
+  data: 2013-08-10
