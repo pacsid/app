@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    function selectText(emailexportar) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(emailexportar));
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(emailexportar));
+            window.getSelection().addRange(range);
+        }
+    }
+</script>
+<h1>Exportar Emails</h1>
+<h5> <p>Um click sobre os emails para copiar </p></h5> 
+<div id="emailexportar" onclick="selectText('emailexportar')">
+<% @emails.each do |email| %>
+  <%= email.email %><br>
+<%end%>
+</div>
+
