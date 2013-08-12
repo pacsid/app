@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130811023615) do
     t.string   "ip"
     t.integer  "time"
     t.integer  "server_id"
+    t.date     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
