@@ -6,6 +6,7 @@ class CreateClicks < ActiveRecord::Migration
       t.integer :server_id
       t.date :data
       t.timestamps
+      t.integer :email_id
     end
   end
   def down

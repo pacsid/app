@@ -19,10 +19,10 @@
       <tr>
         <td><%= link_to server.id, server_path(server) %></td>
         <td><%= server.nome %></td>
-        <td><b>Email:</b><%= server.email.count %> <br><b>Acessos:</b> <%= server.acesso.count %></td>
-        <td><b>Email:</b> <%= server.email.where(data: Date.today.strftime).count %><br><b>Acessos:</b> <%= server.acesso.where(data: Date.today.strftime).count %></td>
-        <td><b>Email:</b> <%= server.email.where("data > ? AND data < ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> <br><b> Acesso:</b> <%= server.acesso.where("data > ? AND data < ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> </td>
-        <td><b>Email</b>: <%= server.email.where('extract(month from data) = ?', Date.today.month).count %> <br> <b>Acesso:</b> <%= server.acesso.where('extract(month from data) = ?', Date.today.month).count %></td>
+        <td><b>Email:</b><%= server.email.count %> <br><b>Acessos:</b> <%= server.acesso.count %><br><b>Clicks:</b> <%= server.click.count %></td>
+        <td><b>Email:</b> <%= server.email.where(data: Date.today.strftime).count %><br><b>Acessos:</b> <%= server.acesso.where(data: Date.today.strftime).count %> <br><b>Clicks: </b> <%= server.click_dia() %></td>
+        <td><b>Email:</b> <%= server.email.where("data >= ? AND data <= ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> <br><b> Acesso:</b> <%= server.acesso.where("data >= ? AND data <= ?", Date.today.at_beginning_of_week.strftime, Date.today.at_end_of_week.strftime).count %> <br><b>Clicks: </b><%= server.click_semana %></td>
+        <td><b>Email</b>: <%= server.email.where('extract(month from data) = ?', Date.today.month).count %> <br> <b>Acesso:</b> <%= server.acesso.where('extract(month from data) = ?', Date.today.month).count %><br><b>Clicks:</b> <%= server.click_mes %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_server_path(server), :class => 'btn btn-mini' %>
@@ -37,8 +37,11 @@
     <% end %>
   </tbody>
 </table>
+
 <h6> Total de Emails:  <%= Email.all.count %> </h6>
 <h6> Total de Acessos: <%= Acesso.all.count %></h6>
+<h6> Total de Clicks:  <%= Click.all.count %></h6>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_server_path,
             :class => 'btn btn-primary' %>

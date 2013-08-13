@@ -6,6 +6,8 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 gem 'devise'
+gem 'rails_best_practices'
+gem 'rack-mini-profiler'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130811023615) do
     t.date     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "email_id"
   end
 
   create_table "emails", force: true do |t|
