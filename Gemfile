@@ -8,6 +8,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'rails_best_practices'
 gem 'rack-mini-profiler'
+gem 'bullet', group: :development
 # Use mysql as the database for Active Record
 gem 'mysql2'
 

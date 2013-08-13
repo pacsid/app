@@ -8,4 +8,7 @@ class CreateEmails < ActiveRecord::Migration
       t.timestamps
     end
   end
+  def down
+    drop_table :emails
+  end
 end

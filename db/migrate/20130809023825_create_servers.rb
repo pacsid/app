@@ -5,5 +5,9 @@ class CreateServers < ActiveRecord::Migration
 
       t.timestamps
     end
+      
+  end
+  def down
+    drop_table :servers
   end
 end
