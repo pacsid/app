@@ -21,7 +21,38 @@ class EmailsController < ApplicationController
 
   def exportar_top
     @emails = Email.find(:all, :order => 'visualizacao DESC')
+    @arqexportartop ="tmp/#{Date.today.strftime}emails.txt"
+    file = File.new(@arqexportartop,"w")
+    @emails.each do |email|
+      file.write("#{email.email}\n")
+    end
+    file.close
+    send_file(@arqexportartop, :disposition => 'attachment')
   end
+
+  def exportar_acessos
+    @acessos = Acesso.find(:all, :include => :email, :order => 'emails.id')
+    @arqexpacessos = "tmp/#{Date.today.strftime}acessos.txt"
+    file = File.new(@arqexpacessos, "w")
+    @acessos.each do |acesso|
+      file.write("#{acesso.email.email}\n")
+    end
+    file.close
+    send_file(@arqexpacessos, :disposition => 'attachment')
+  end
+
+  def exportar_emails_srv(id)
+    @emails = Email.where(:server_id => id)
+    @arqemailssrv = "tmp/#{Date.today.strftime}emailsrv#{id}.txt"
+    file = File.new(@arqemailssrv, "w")
+    @emails.each do |email|
+      file.write("#{email.email}\n")
+    end
+    file.close
+    send_file(@arqemailssrv, :disposition => 'attachment')
+  end
+
+
   # GET /emails/1
   # GET /emails/1.json
   def show
